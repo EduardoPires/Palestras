@@ -1,0 +1,21 @@
+<app-menu-superior></app-menu-superior>
+<div class="container main-container">
+  <div class="jumbotron">
+    <h2>{{ meetup.nome }}</h2>
+    <h4>{{ meetup.descricao }}</h4>
+  </div>
+
+  <div class="container">
+    <div>
+      <div class="row">
+        <b>Quando:</b><br /> {{ meetup.data | date:'dd/MM/yyyy' }}
+      </div>
+      <br />
+      <br />
+      <div class="row">
+        <b>Onde?</b><br />
+        {{ meetup.local }}
+      </div>
+    </div>
+  </div>
+</div>

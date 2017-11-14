@@ -1,0 +1,64 @@
+<app-menu-superior></app-menu-superior>
+<div class="container main-container">
+  <h2>Novo Meetup</h2>
+  <h4>Preencha corretamente os dados</h4>
+  <hr />
+
+  <form novalidate (ngSubmit)="adicionarMeetup()" [formGroup]="meetupForm">
+
+    <div class="form-horizontal">
+      <div class="alert alert-danger" *ngIf="errors.length > 0">
+        <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+        <ul>
+          <li *ngFor="let error of errors">{{ error }}</li>
+        </ul>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': displayMessage.nome }">
+        <label class="col-md-2 control-label" for="nome">Nome do Meetup</label>
+        <div class="col-md-10">
+          <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="nome" />
+          <span class="text-danger" *ngIf="displayMessage.nome">
+              <p [innerHTML]="displayMessage.nome"></p>
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': displayMessage.descricao }">
+        <label class="col-md-2 control-label" for="descricao">Descricao do Meetup</label>
+        <div class="col-md-10">
+          <input class="form-control" id="descricao" type="text" placeholder="Descricao (requerido)" formControlName="descricao" />
+          <span class="text-danger" *ngIf="displayMessage.descricao">
+                <p [innerHTML]="displayMessage.descricao"></p>
+            </span>
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': displayMessage.data }">
+        <label class="col-md-2 control-label" for="data">Data do Meetup</label>
+        <div class="col-md-10">
+          <input class="form-control" id="data" type="text" placeholder="Data (requerido)" formControlName="data" />
+          <span class="text-danger" *ngIf="displayMessage.data">
+                  <p [innerHTML]="displayMessage.data"></p>
+              </span>
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': displayMessage.local }">
+        <label class="col-md-2 control-label" for="local">Local do Meetup</label>
+        <div class="col-md-10">
+          <input class="form-control" id="local" type="text" placeholder="Local (requerido)" formControlName="local" />
+          <span class="text-danger" *ngIf="displayMessage.local">
+                    <p [innerHTML]="displayMessage.local"></p>
+                </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+          <span><button class="btn btn-primary" id="adicionarMeetup" type="submit" [disabled]='!meetupForm.valid'>Adicionar</button></span>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

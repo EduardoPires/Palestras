@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.main-container {
+   padding-right: 15px;
+   padding-left: 15px;
+   margin-right: auto;
+   margin-left: auto;
+   overflow:hidden;
+   min-height:500px !important;
+}

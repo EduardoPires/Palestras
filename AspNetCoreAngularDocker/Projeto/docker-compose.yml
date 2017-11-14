@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  serverApi:
+    image: meetup.api
+    build: 
+      context: ./API
+      dockerfile: Dockerfile
+    environment: 
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "57331:57332"
+
+  client:
+    image: meetup.client
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"

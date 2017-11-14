@@ -1,0 +1,35 @@
+<app-menu-superior></app-menu-superior>
+<div class="container main-container">
+
+  <h2>Excluir Meetup</h2>
+  <h3>Tem certeza que deseja excluir este Meetup?</h3>
+  <div>
+    <hr />
+    <dl class="dl-horizontal">
+      <dt>
+        Nome
+      </dt>
+      <dd>
+        {{ meetup.nome }}
+      </dd>
+      <dt>
+        Data
+      </dt>
+      <dd>
+        {{ meetup.data | date:'dd/MM/yyyy' }}
+      </dd>
+      <dt>
+        Onde?
+      </dt>
+      <dd>
+        {{ meetup.local }}
+      </dd>
+    </dl>
+
+    <div class="form-actions no-color">
+      <input type="submit" (click)="excluirMeetup()" value="Excluir" class="btn btn-danger" />
+      <a [routerLink]="['/meetups']" class="btn btn-primary">Voltar para a lista</a>
+    </div>
+
+  </div>
+</div>

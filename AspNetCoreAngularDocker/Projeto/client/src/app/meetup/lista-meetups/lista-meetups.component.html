@@ -1,0 +1,50 @@
+<app-menu-superior></app-menu-superior>
+<div class="container main-container">
+  <h2>Lista dos Próximos Meetups</h2>
+
+  <div class="row">
+      <div class="col-md-12">
+        <div class="pull-left">
+          <a class="btn btn-primary" id="novoEvento" [routerLink]="['/novo-meetup']">
+            <span title="Novo Meetup" class="glyphicon glyphicon-plus-sign"></span> Novo Meetup
+          </a>
+        </div>
+      </div>
+    </div>
+    <br>
+
+  <div class='text-danger' *ngIf='errorMessage'>{{errorMessage.message}}</div>
+
+  <div class="page-size">
+      <div class="panel panel-default">
+        <table class="table table-striped" *ngIf='meetups && meetups.length'>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Data</th>
+              <th>Local</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let meetup of meetups'>
+              <td>{{ meetup.nome }}</td>
+              <td>{{ meetup.data | date:'dd/MM/yyyy' }}</td>
+              <td>{{ meetup.local }}</td> 
+              <td>
+                <a [routerLink]="['/meetup-detalhes', meetup.id]"  title="Detalhes" class="btn btn-primary">
+                  <span class="glyphicon glyphicon-search"></span>
+                </a>
+                <a [routerLink]="['/meetup-editar', meetup.id]"  title="Editar" class="btn btn-warning">
+                  <span class="glyphicon glyphicon-pencil"></span>
+                </a>
+                <a [routerLink]="['/meetup-excluir', meetup.id]"  title="Excluir" class="btn btn-danger">
+                  <span class="glyphicon glyphicon-trash"></span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
