@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="microsoft.aspnetcore.hosting.abstractions" Version="2.0.1" />
+    <PackageReference Include="microsoft.aspnetcore.http.abstractions" Version="2.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.0.1" />
+    <PackageReference Include="microsoft.aspnetcore.mvc.abstractions" Version="2.0.1" />
+  </ItemGroup>
+
+</Project>
