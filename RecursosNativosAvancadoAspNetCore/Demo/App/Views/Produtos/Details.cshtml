@@ -1,0 +1,50 @@
+﻿@model App.ProdutoViewModel
+
+@{
+    ViewData["Title"] = "Detalhe do Produto - " + Model.Nome;
+}
+
+<h4 style="padding-top: 50px">@ViewData["Title"]</h4>
+<hr />
+<div class="row">
+    
+    <div class="col-md-6">
+        <dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Descricao)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Valor)
+            </dt>
+            <dd>
+                @Model.Valor.ToString("C")
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DataCadastro)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataCadastro)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ativo)
+            </dd>
+        </dl>
+
+        <div>
+            <a supress-by-claim-name="Produto" supress-by-claim-value="Editar" class="btn btn-dark" sp-action="Edit" asp-route-id="@Model.Id">Editar</a>
+            <a class="btn btn-info" href="javascript:window.history.back();">Voltar</a>
+        </div>
+    </div>
+</div>

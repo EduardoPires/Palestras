@@ -1,0 +1,40 @@
+﻿@using App.Extensions
+@model IEnumerable<App.ProdutoViewModel>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ativo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @item.Valor.ToString("C")
+                </td>
+                <td>
+                    @Html.Raw(this.StatusPedido(item.Ativo))
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-warning" asp-controller="Produtos" asp-action="Details" asp-route-id="@item.Id"><spam class="fa fa-search"></spam> </a>
+                    <a disable-by-claim-name="Produto" disable-by-claim-value="Editar" class="btn btn-info" asp-controller="Produtos" asp-action="Edit" asp-route-id="@item.Id"><spam class="fa fa-pencil-alt"></spam> </a>
+                    <a supress-by-claim-name="Produto" supress-by-claim-value="Excluir" class="btn btn-danger" asp-controller="Produtos" asp-action="Delete" asp-route-id="@item.Id"><spam class="fa fa-trash"></spam> </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
