@@ -1,0 +1,21 @@
+<div class="container main-container">
+
+    <h1>Filmes</h1>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data Lançamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let filme of filmes'>
+                <img src="/assets/{{ filme.imagem }}" style="padding-bottom: 5px;">
+                <td>{{ filme.nome | titlecase }}</td>
+                <td>{{ filme.anoLancamento | date:"dd/MM/yyyy" }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

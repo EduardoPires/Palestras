@@ -1,0 +1,39 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" [routerLink]="['/home']">Meus Filmes</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+
+            </ul>
+            <ul [ngSwitch]="usuarioLogado()" class="nav navbar-nav navbar-right">
+
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/filmes']">Filmes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/sobre']">Sobre</a>
+                </li>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <li class="nav-item" *ngSwitchCase="false"><a class="nav-link" [routerLink]="['/cadastro']">Registre-se</a></li>
+                <li class="nav-item" *ngSwitchCase="false"><a class="nav-link" [routerLink]="['/entrar']">Entrar</a></li>
+
+                <li class="nav-item" *ngSwitchCase="true">
+                    <a class="nav-link" href="javascript:void(0)">
+                        Seja bem vindo!</a>
+                </li>
+
+                <li class="nav-item" *ngSwitchCase="true">
+                    <a class="nav-link" href="javascript:void(0)" (click)="logout()">
+                        <span class="fas fa-sign-out-alt"></span> Sair</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- FIM Navigation -->

@@ -1,0 +1,50 @@
+<div class="container main-container">
+    <h4>Demo Login</h4>
+    <hr />
+    <form novalidate (ngSubmit)="loginUsuario()" [formGroup]="loginForm">
+        <div class="form-horizontal">
+
+            <div class="alert alert-danger" *ngIf="erro.length > 0">
+                <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+                {{ erro }}
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">E-mail</label>
+                <div class="col-md-10">
+                    <input class="form-control" id="email" type="text" placeholder="E-mail (requerido)" formControlName="email" [ngClass]="{'is-invalid': displayMessage.email }" />
+                    <span class="text-danger" *ngIf="displayMessage.email">
+                        <p [innerHTML]="displayMessage.email"></p>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Senha</label>
+                <div class="col-md-10">
+                    <input class="form-control" id="senha" type="password" placeholder="Senha (requerido)" formControlName="senha" [ngClass]="{'is-invalid': displayMessage.senha }" />
+                    <span class="text-danger" *ngIf="displayMessage.senha">
+                        <p [innerHTML]="displayMessage.senha"></p>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-2">
+                    <span><button class="btn btn-success" id="Login" [disabled]="!loginForm.valid" type="submit">Login</button></span>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-2">
+                    <p>Formulario valido: {{ loginForm.valid }}</p>
+                    <p>Formulario Tocado: {{ loginForm.touched }}</p>
+                    <p>Formulario Sujo: {{ loginForm.dirty }}</p><br>
+                    <p>Formulario: {{ formResult }}</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
