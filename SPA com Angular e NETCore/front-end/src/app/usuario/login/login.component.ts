@@ -19,7 +19,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
   loginForm: FormGroup;
-  formResult: string = '';
   usuario: Usuario;
   MASKS = utilsBr.MASKS;
 
@@ -67,15 +66,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
   loginUsuario() {
     if (this.loginForm.dirty && this.loginForm.valid) {
       this.usuario = Object.assign({}, this.usuario, this.loginForm.value);
-      this.formResult = JSON.stringify(this.loginForm.value);
 
       this.usuarioService.login(this.usuario)  
         .subscribe(
           result => this.sucesso(result),
           fail => this.falha(fail));
-    }
-    else {
-      this.formResult = "Não submeteu!!!"
     }
   }
 

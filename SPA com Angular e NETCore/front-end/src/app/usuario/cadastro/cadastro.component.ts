@@ -19,7 +19,6 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
   cadastroForm: FormGroup;
-  formResult: string = '';
   usuario: Usuario;
   MASKS = utilsBr.MASKS;
   erro: string = '';
@@ -75,17 +74,13 @@ export class CadastroComponent implements OnInit, AfterViewInit {
   adicionarUsuario() {
     if (this.cadastroForm.dirty && this.cadastroForm.valid) {
       this.usuario = Object.assign({}, this.usuario, this.cadastroForm.value);
-      this.formResult = JSON.stringify(this.cadastroForm.value);
 
       this.usuarioService.registrarUsuario(this.usuario)  
         .subscribe(
           result => this.sucesso(result),
           fail => this.falha(fail));
 
-    }
-    else {
-      this.formResult = "Não submeteu!!!"
-    }    
+    } 
   }
 
   sucesso(response: any): void {

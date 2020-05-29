@@ -12,7 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace MeusFilme.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/conta")]
     [ApiController]
     public class AuthController : ControllerBase
     {

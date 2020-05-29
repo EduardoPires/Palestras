@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -12,7 +11,7 @@ using Microsoft.EntityFrameworkCore;
 namespace MeusFilme.API.Controllers
 {
     [Authorize]
-    [Route("api/[controller]")]
+    [Route("api/filmes")]
     [ApiController]
     public class FilmesController : ControllerBase
     {
@@ -33,7 +32,7 @@ namespace MeusFilme.API.Controllers
                 var user = _accessor.HttpContext.User.FindFirst(ClaimTypes.Email);
             }
 
-            return await _context.Filme.ToListAsync();
+            return await _context.Filme.OrderBy(f=>f.AnoLancamento).ToListAsync();
         }
     }
 }

@@ -27,7 +27,7 @@ export class AuthService extends BaseService implements CanActivate {
     registrarUsuario(usuario: Usuario) : Observable<Usuario> {
 
         let response = this.http
-            .post(this.UrlServiceV1 + "auth/nova-conta", usuario, super.ObterHeaderJson())
+            .post(this.UrlServiceV1 + "conta/nova-conta", usuario, super.ObterHeaderJson())
             .pipe(
                 map(super.extractData),
                 catchError(super.serviceError));
@@ -38,7 +38,7 @@ export class AuthService extends BaseService implements CanActivate {
     login(usuario: Usuario) : Observable<Usuario> {
 
         let response = this.http
-            .post(this.UrlServiceV1 + "auth/entrar", usuario, super.ObterHeaderJson())
+            .post(this.UrlServiceV1 + "conta/entrar", usuario, super.ObterHeaderJson())
             .pipe(
                 map(super.extractData),
                 catchError(super.serviceError));

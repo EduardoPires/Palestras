@@ -83,6 +83,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MeuProjeto"
+    }
+  },
+  "defaultProject": "MeuProjeto",
+  "cli": {
+    "analytics": false
+  }
 }
