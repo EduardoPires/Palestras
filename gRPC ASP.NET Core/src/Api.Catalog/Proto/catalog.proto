@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "Api.Catalog.Services";
+
+package ApiSample;
+
+service Catalog {
+	rpc GetProducts(CatalogRequest) returns (CatalogResponse) {}
+}
+
+message CatalogRequest {
+
+}
+
+message CatalogResponse {
+	repeated CatalogItemResponse items = 1;
+}
+
+message CatalogItemResponse {
+	string name = 1;
+	string description = 2;
+	double price = 3;
+	string image = 4;
+}
